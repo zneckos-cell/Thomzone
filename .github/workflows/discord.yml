@@ -22,4 +22,10 @@ jobs:
           git config user.name "chatt-bot"
           git config user.email "chatt-bot@users.noreply.github.com"
           git add data/
-          git diff --cached --quiet || (git commit -m "Uppdatera chatt" && git push)
+          if git diff --cached --quiet; then
+            echo "Inga ändringar att spara"
+            exit 0
+          fi
+          git commit -m "Uppdatera chatt"
+          git pull --rebase
+          git push
