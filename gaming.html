@@ -182,7 +182,7 @@
 
           <article class="card card--wide">
             <h3>Discord-chatt</h3>
-            <div class="chat">
+            <div class="chat" id="chat-satisfactory">
               <div class="chat-msg"><header><strong>Exempelnamn</strong><time>12:04</time></header><p>Exempelmeddelande från Discord-kanalen.</p></div>
               <div class="chat-msg"><header><strong>Exempelnamn</strong><time>11:58</time></header><p>Ett till exempelmeddelande.</p></div>
             </div>
@@ -231,7 +231,7 @@
 
           <article class="card card--wide">
             <h3>Discord-chatt</h3>
-            <div class="chat">
+            <div class="chat" id="chat-valheim">
               <div class="chat-msg"><header><strong>Exempelnamn</strong><time>12:04</time></header><p>Exempelmeddelande från Discord-kanalen.</p></div>
               <div class="chat-msg"><header><strong>Exempelnamn</strong><time>11:58</time></header><p>Ett till exempelmeddelande.</p></div>
             </div>
@@ -280,7 +280,7 @@
 
           <article class="card card--wide">
             <h3>Discord-chatt</h3>
-            <div class="chat">
+            <div class="chat" id="chat-minecraft">
               <div class="chat-msg"><header><strong>Exempelnamn</strong><time>12:04</time></header><p>Exempelmeddelande från Discord-kanalen.</p></div>
               <div class="chat-msg"><header><strong>Exempelnamn</strong><time>11:58</time></header><p>Ett till exempelmeddelande.</p></div>
             </div>
@@ -386,5 +386,51 @@
         if (event.key === "ArrowRight") showImage(currentIndex + 1);
       });
     </script>
+    <script>
+  // Gör om texten så att den inte kan tolkas som HTML-kod
+  function escapeHtml(text) {
+    return text
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  // Hämtar JSON-filen och skriver ut meddelandena i rätt block
+  async function loadChat(name) {
+    const container = document.getElementById(`chat-${name}`);
+
+    try {
+      const response = await fetch(`data/chat-${name}.json`);
+      if (!response.ok) throw new Error(response.status);
+
+      const messages = await response.json();
+
+      if (messages.length === 0) {
+        container.innerHTML = `<p class="chat-note">Inga meddelanden ännu.</p>`;
+        return;
+      }
+
+      container.innerHTML = messages
+        .slice(-5) // visar bara de fem senaste
+        .map((m) => `
+          <div class="chat-msg">
+            <header>
+              <strong>${escapeHtml(m.author)}</strong>
+              <time>${new Date(m.time).toLocaleString("sv-SE", { dateStyle: "short", timeStyle: "short" })}</time>
+            </header>
+            <p>${escapeHtml(m.text)}</p>
+          </div>
+        `)
+        .join("");
+    } catch (error) {
+      container.innerHTML = `<p class="chat-note">Chatten kunde inte laddas.</p>`;
+    }
+  }
+
+  // Kör funktionen för varje spel
+  ["satisfactory", "valheim", "minecraft"].forEach(loadChat);
+</script>
   </body>
 </html>
