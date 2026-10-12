@@ -788,6 +788,149 @@ svg {
   margin-top: 24px;
 }
 
+.about-mascot {
+  position: relative;
+  align-self: center;
+  margin: 0;
+}
+
+.about-mascot img {
+  position: relative;
+  z-index: 1;
+  height: 340px;
+  filter: drop-shadow(0 0 24px rgb(0 170 255 / 35%));
+}
+
+.about-mascot__overlay {
+  position: absolute;
+  z-index: 2;
+  bottom: 0;
+  left: 50%;
+  width: auto;
+  height: 420px;
+  overflow: visible;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.about-hub-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin: 18px 0 0;
+  padding: 14px 0;
+  border-top: 1px solid var(--line-soft);
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.about-hub-summary div {
+  padding: 0 20px;
+  border-left: 1px solid var(--line-soft);
+}
+
+.about-hub-summary div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.about-hub-summary dt {
+  color: var(--orange);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.66rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.about-hub-summary dd {
+  margin: 7px 0 0;
+  color: #c9e7f2;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.about-info__intro,
+.about-contact > div > p:last-child {
+  max-width: 760px;
+  color: #b8d0dc;
+  line-height: 1.7;
+}
+
+.about-info > h2,
+.about-contact h2 {
+  margin: 0;
+  color: #d8f4ff;
+  font-family: "Bahnschrift", "Arial Black", Arial, sans-serif;
+  font-size: 1.8rem;
+  text-transform: uppercase;
+}
+
+.about-info__intro {
+  margin: 12px 0 0;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.about-feature {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgb(3 21 35 / 68%);
+}
+
+.about-feature > span {
+  color: var(--orange);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.68rem;
+  font-weight: 700;
+}
+
+.about-feature h3 {
+  margin: 14px 0 8px;
+  color: #d8f4ff;
+  font-size: 1.05rem;
+}
+
+.about-feature p {
+  margin: 0;
+  color: #a9c4d0;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+
+.about-games-link {
+  margin-top: 22px;
+}
+
+.about-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.about-contact > div > p:last-child {
+  margin: 10px 0 0;
+}
+
+.about-contact__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.about-contact__links .button {
+  min-width: 0;
+  padding: 0 18px;
+  font-size: 0.75rem;
+}
+
 .content-section {
   width: min(var(--page-width), calc(100% - 40px));
   min-height: 52svh;
@@ -871,6 +1014,23 @@ svg {
   .inner-page-grid {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+
+  .about-mascot {
+    justify-self: center;
+  }
+
+  .about-mascot__overlay {
+    height: 320px;
+  }
+
+  .about-contact {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .about-contact__links {
+    justify-content: flex-start;
   }
 
   .hero-title-frame h1 {
@@ -1033,6 +1193,37 @@ svg {
     grid-template-columns: 1fr;
   }
 
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hub-summary {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .about-hub-summary div,
+  .about-hub-summary div:first-child {
+    padding: 0;
+    border: 0;
+  }
+
+  .about-mascot img {
+    height: 280px;
+  }
+
+  .about-mascot__overlay {
+    height: 280px;
+  }
+
+  .about-contact__links {
+    width: 100%;
+  }
+
+  .about-contact__links .button {
+    width: 100%;
+  }
+
   .portal-card {
     min-height: 96px;
   }
@@ -1099,5 +1290,13 @@ svg {
 @media (max-width: 540px) {
   .hologram-panel img {
     height: 260px;
+  }
+
+  .about-mascot img {
+    height: 280px;
+  }
+
+  .about-mascot__overlay {
+    height: 280px;
   }
 }
