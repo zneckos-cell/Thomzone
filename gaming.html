@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#03111d" />
+    <meta name="description" content="Gaming archive - Northern Reach." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="gaming.css" />
+    <style>
+      [hidden] { display: none !important; }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        display: grid;
+        place-items: center;
+        padding: 60px 70px;
+        background: rgb(1 8 14 / 92%);
+        backdrop-filter: blur(6px);
+      }
+
+      .lightbox figure {
+        margin: 0;
+        display: grid;
+        justify-items: center;
+        gap: 12px;
+      }
+
+      .lightbox img {
+        display: block;
+        max-width: min(1600px, 100%);
+        max-height: 82vh;
+        width: auto;
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        box-shadow: 0 25px 80px rgb(0 0 0 / 60%);
+      }
+
+      .lightbox figcaption {
+        color: #79adc0;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .lightbox__btn {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border: 1px solid var(--cyan);
+        border-radius: 50%;
+        background: rgb(4 20 32 / 80%);
+        color: #bfeeff;
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .lightbox__btn:hover,
+      .lightbox__btn:focus-visible {
+        background: rgb(126 218 251 / 16%);
+        outline: none;
+      }
+
+      .lightbox__close {
+        top: 20px;
+        right: 20px;
+      }
+
+      .lightbox__prev {
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+      }
+
+      .lightbox__next {
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+      }
+
+      .gallery a {
+        cursor: zoom-in;
+      }
+
+      @media (max-width: 760px) {
+        .lightbox {
+          padding: 70px 12px 80px;
+        }
+
+        .lightbox__prev,
+        .lightbox__next {
+          top: auto;
+          bottom: 16px;
+          transform: none;
+        }
+
+        .lightbox__prev {
+          left: 16px;
+        }
+
+        .lightbox__next {
+          right: 16px;
+        }
+      }
+    </style>
+    <title>Gaming · Thomzone</title>
+  </head>
+  <body>
+    <div class="background" aria-hidden="true"><video class="background__video" autoplay muted loop playsinline preload="auto" poster="background-poster.webp"><source src="background.webm" type="video/webm" /><source src="background.mp4" type="video/mp4" /></video><div class="background__overlay"></div></div>
+
+    <header class="site-header">
+      <i class="frame-corner frame-corner--tl" aria-hidden="true"></i><i class="frame-corner frame-corner--tr" aria-hidden="true"></i><i class="frame-corner frame-corner--bl" aria-hidden="true"></i><i class="frame-corner frame-corner--br" aria-hidden="true"></i>
+      <a class="brand" href="index.html" aria-label="Northern Reach, home"><span class="brand__mark" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="m14.8 9.2-1.7 3.9-3.9 1.7 1.7-3.9 3.9-1.7Z" /><path d="M19 4l1.5-1.5" /></svg></span><span class="brand__status" aria-hidden="true"></span><span class="brand__copy"><strong>Northern Reach</strong><small>Field node / 07</small></span></a>
+      <nav class="main-nav" aria-label="Main navigation"><a class="main-nav__link" href="index.html">Home</a><a class="main-nav__link is-active" href="gaming.html" aria-current="page">Gaming</a><a class="main-nav__link" href="tech.html">Tech</a><a class="main-nav__link" href="projects.html">Projects</a><a class="main-nav__link" href="about.html">About</a></nav>
+    </header>
+
+    <main class="page-content">
+      <section class="hero-section">
+        <div class="command-panel inner-page-panel">
+          <i class="panel-corner panel-corner--tl" aria-hidden="true"></i><i class="panel-corner panel-corner--br" aria-hidden="true"></i>
+          <div class="inner-page-grid">
+            <div class="inner-page-copy">
+              <p class="kicker"><span></span>// Game_Archive_02</p>
+              <h1>Gaming</h1>
+              <p class="inner-page-lead">Sessions, servers, and field notes from every world worth getting lost in.</p>
+              <div class="tag-row"><span>Satisfactory</span><span>Valheim</span><span>Minecraft</span></div>
+            </div>
+            <aside class="data-panel">
+              <div class="data-panel__heading"><p>// Server status</p><span>Live</span></div>
+              <h2>Night Signal</h2>
+              <dl class="data-list">
+                <div><dt>Satisfactory</dt><dd>Offline</dd></div>
+                <div><dt>Valheim</dt><dd>Online</dd></div>
+                <div><dt>Minecraft</dt><dd>Offline</dd></div>
+              </dl>
+            </aside>
+          </div>
+          <div class="command-panel__divider"></div>
+          <nav class="portal-grid game-nav" aria-label="Choose game">
+            <a class="portal-card" href="#satisfactory"><b>01</b><div><h2>Satisfactory</h2><span></span><p>Factories, belts, and blueprints.</p></div></a>
+            <a class="portal-card" href="#valheim"><b>02</b><div><h2>Valheim</h2><span></span><p>Norse survival and long nights.</p></div></a>
+            <a class="portal-card" href="#minecraft"><b>03</b><div><h2>Minecraft</h2><span></span><p>Building, mining, and exploring.</p></div></a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- SATISFACTORY -->
+      <section class="game-section" id="satisfactory" aria-labelledby="satisfactory-title">
+        <div class="game-head">
+          <div>
+            <p class="section-code">// Satisfactory</p>
+            <h2 id="satisfactory-title">Satisfactory</h2>
+            <p>Automation, factories, and building things that work.</p>
+          </div>
+          <span class="status status--offline">Offline</span>
+        </div>
+
+        <div class="game-grid">
+          <article class="card">
+            <h3>Information</h3>
+            <p>Beskrivning av servern: spelläge, regler, mods och vad som gäller för nya spelare.</p>
+          </article>
+
+          <article class="card">
+            <h3>Server</h3>
+            <dl class="server-list">
+              <div>
+                <dt>IP / DNS</dt>
+                <dd>satisfactory.example.com <button class="copy-btn" type="button" data-copy="satisfactory.example.com">Kopiera</button></dd>
+              </div>
+              <div><dt>Spelare</dt><dd>0/8</dd></div>
+            </dl>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord-chatt</h3>
+            <div class="chat">
+              <div class="chat-msg"><header><strong>Exempelnamn</strong><time>12:04</time></header><p>Exempelmeddelande från Discord-kanalen.</p></div>
+              <div class="chat-msg"><header><strong>Exempelnamn</strong><time>11:58</time></header><p>Ett till exempelmeddelande.</p></div>
+            </div>
+            <p class="chat-note">Platshållare. Kopplas till Discord senare.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Bilder</h3>
+            <div class="gallery">
+              <a href="img/satisfactory/1.jpg"><img src="img/satisfactory/1.jpg" width="1920" height="1080" alt="Satisfactory skärmbild 1" loading="lazy" /></a>
+              <a href="img/satisfactory/2.jpg"><img src="img/satisfactory/2.jpg" width="1920" height="1080" alt="Satisfactory skärmbild 2" loading="lazy" /></a>
+              <a href="img/satisfactory/3.jpg"><img src="img/satisfactory/3.jpg" width="1920" height="1080" alt="Satisfactory skärmbild 3" loading="lazy" /></a>
+              <a href="img/satisfactory/4.jpg"><img src="img/satisfactory/4.jpg" width="1920" height="1080" alt="Satisfactory skärmbild 4" loading="lazy" /></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- VALHEIM -->
+      <section class="game-section" id="valheim" aria-labelledby="valheim-title">
+        <div class="game-head">
+          <div>
+            <p class="section-code">// Valheim</p>
+            <h2 id="valheim-title">Valheim</h2>
+            <p>Survival, vikingar och en värld som inte gör det lätt.</p>
+          </div>
+          <span class="status status--online">Online</span>
+        </div>
+
+        <div class="game-grid">
+          <article class="card">
+            <h3>Information</h3>
+            <p>Beskrivning av servern: världsnamn, regler, bas-tips och vad som gäller för nya spelare.</p>
+          </article>
+
+          <article class="card">
+            <h3>Server</h3>
+            <dl class="server-list">
+              <div>
+                <dt>IP / DNS</dt>
+                <dd>valheim.example.com <button class="copy-btn" type="button" data-copy="valheim.example.com">Kopiera</button></dd>
+              </div>
+              <div><dt>Spelare</dt><dd>8/8</dd></div>
+            </dl>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord-chatt</h3>
+            <div class="chat">
+              <div class="chat-msg"><header><strong>Exempelnamn</strong><time>12:04</time></header><p>Exempelmeddelande från Discord-kanalen.</p></div>
+              <div class="chat-msg"><header><strong>Exempelnamn</strong><time>11:58</time></header><p>Ett till exempelmeddelande.</p></div>
+            </div>
+            <p class="chat-note">Platshållare. Kopplas till Discord senare.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Bilder</h3>
+            <div class="gallery">
+              <a href="img/valheim/1.jpg"><img src="img/valheim/1.jpg" width="1920" height="1080" alt="Valheim skärmbild 1" loading="lazy" /></a>
+              <a href="img/valheim/2.jpg"><img src="img/valheim/2.jpg" width="1920" height="1080" alt="Valheim skärmbild 2" loading="lazy" /></a>
+              <a href="img/valheim/3.jpg"><img src="img/valheim/3.jpg" width="1920" height="1080" alt="Valheim skärmbild 3" loading="lazy" /></a>
+              <a href="img/valheim/4.jpg"><img src="img/valheim/4.jpg" width="1920" height="1080" alt="Valheim skärmbild 4" loading="lazy" /></a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- MINECRAFT -->
+      <section class="game-section" id="minecraft" aria-labelledby="minecraft-title">
+        <div class="game-head">
+          <div>
+            <p class="section-code">// Minecraft</p>
+            <h2 id="minecraft-title">Minecraft</h2>
+            <p>Bygg, utforska och mysa tillsammans.</p>
+          </div>
+          <span class="status status--offline">Offline</span>
+        </div>
+
+        <div class="game-grid">
+          <article class="card">
+            <h3>Information</h3>
+            <p>Beskrivning av servern: version, regler, plugins och vad som gäller för nya spelare.</p>
+          </article>
+
+          <article class="card">
+            <h3>Server</h3>
+            <dl class="server-list">
+              <div>
+                <dt>IP / DNS</dt>
+                <dd>minecraft.example.com <button class="copy-btn" type="button" data-copy="minecraft.example.com">Kopiera</button></dd>
+              </div>
+              <div><dt>Spelare</dt><dd>0/8</dd></div>
+            </dl>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord-chatt</h3>
+            <div class="chat">
+              <div class="chat-msg"><header><strong>Exempelnamn</strong><time>12:04</time></header><p>Exempelmeddelande från Discord-kanalen.</p></div>
+              <div class="chat-msg"><header><strong>Exempelnamn</strong><time>11:58</time></header><p>Ett till exempelmeddelande.</p></div>
+            </div>
+            <p class="chat-note">Platshållare. Kopplas till Discord senare.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Bilder</h3>
+            <div class="gallery">
+              <a href="img/minecraft/1.jpg"><img src="img/minecraft/1.jpg" width="1920" height="1080" alt="Minecraft skärmbild 1" loading="lazy" /></a>
+              <a href="img/minecraft/2.jpg"><img src="img/minecraft/2.jpg" width="1920" height="1080" alt="Minecraft skärmbild 2" loading="lazy" /></a>
+              <a href="img/minecraft/3.jpg"><img src="img/minecraft/3.jpg" width="1920" height="1080" alt="Minecraft skärmbild 3" loading="lazy" /></a>
+              <a href="img/minecraft/4.jpg"><img src="img/minecraft/4.jpg" width="1920" height="1080" alt="Minecraft skärmbild 4" loading="lazy" /></a>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Bildvisare" hidden>
+      <button class="lightbox__btn lightbox__close" type="button" aria-label="Stäng">×</button>
+      <button class="lightbox__btn lightbox__prev" type="button" aria-label="Föregående bild">‹</button>
+      <figure>
+        <img id="lightbox-img" src="" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+      <button class="lightbox__btn lightbox__next" type="button" aria-label="Nästa bild">›</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+      // Kopiera IP/DNS till urklipp
+      document.querySelectorAll(".copy-btn").forEach((btn) => {
+        btn.addEventListener("click", async () => {
+          try {
+            await navigator.clipboard.writeText(btn.dataset.copy);
+            btn.textContent = "Kopierad";
+          } catch {
+            btn.textContent = "Fel";
+          }
+          setTimeout(() => (btn.textContent = "Kopiera"), 1500);
+        });
+      });
+
+      // Lightbox: bilderna i samma galleri bläddras med pilar
+      const lightbox = document.getElementById("lightbox");
+      const lightboxImg = document.getElementById("lightbox-img");
+      const lightboxCaption = document.getElementById("lightbox-caption");
+      const closeBtn = lightbox.querySelector(".lightbox__close");
+      const prevBtn = lightbox.querySelector(".lightbox__prev");
+      const nextBtn = lightbox.querySelector(".lightbox__next");
+
+      let currentGroup = [];
+      let currentIndex = 0;
+
+      function showImage(index) {
+        currentIndex = (index + currentGroup.length) % currentGroup.length;
+        const link = currentGroup[currentIndex];
+        const img = link.querySelector("img");
+        lightboxImg.src = link.href;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = `${currentIndex + 1} / ${currentGroup.length}`;
+      }
+
+      function openLightbox(group, index) {
+        currentGroup = group;
+        showImage(index);
+        lightbox.hidden = false;
+        document.body.style.overflow = "hidden";
+        closeBtn.focus();
+      }
+
+      function closeLightbox() {
+        lightbox.hidden = true;
+        lightboxImg.src = "";
+        document.body.style.overflow = "";
+      }
+
+      document.querySelectorAll(".gallery").forEach((gallery) => {
+        const links = [...gallery.querySelectorAll("a")];
+        links.forEach((link, i) => {
+          link.addEventListener("click", (event) => {
+            event.preventDefault();
+            openLightbox(links, i);
+          });
+        });
+      });
+
+      closeBtn.addEventListener("click", closeLightbox);
+      prevBtn.addEventListener("click", () => showImage(currentIndex - 1));
+      nextBtn.addEventListener("click", () => showImage(currentIndex + 1));
+
+      // Klick utanför bilden stänger
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (lightbox.hidden) return;
+        if (event.key === "Escape") closeLightbox();
+        if (event.key === "ArrowLeft") showImage(currentIndex - 1);
+        if (event.key === "ArrowRight") showImage(currentIndex + 1);
+      });
+    </script>
+  </body>
+</html>
