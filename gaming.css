@@ -316,3 +316,23 @@
 .portal-card[class*="portal-card--"] h2 {
   color: var(--accent);
 }
+/* Färgmarkering per spelsektion */
+#satisfactory {
+  --accent: #ff7919;
+}
+
+#valheim {
+  --accent: #7fd08a;
+}
+
+#minecraft {
+  --accent: #4fa3ff;
+}
+
+.game-section {
+  border-top: 3px solid var(--accent);
+}
+
+.game-section .section-code {
+  color: var(--accent);
+}
