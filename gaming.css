@@ -291,3 +291,28 @@
     gap: 10px;
   }
 }
+/* Färgmarkering per spel på navigationskorten */
+.portal-card--satisfactory {
+  --accent: #ff7919;
+}
+
+.portal-card--valheim {
+  --accent: #7fd08a;
+}
+
+.portal-card--minecraft {
+  --accent: #4fa3ff;
+}
+
+.portal-card[class*="portal-card--"] {
+  border-bottom: 3px solid var(--accent);
+}
+
+.portal-card[class*="portal-card--"]:hover,
+.portal-card[class*="portal-card--"]:focus-visible {
+  border-color: var(--accent);
+}
+
+.portal-card[class*="portal-card--"] h2 {
+  color: var(--accent);
+}
