@@ -1064,23 +1064,33 @@ svg {
   }
 }
 
-/* Hologram-bilden i hero-sektionen */
+/* ---------------------     Hologram-bilden i hero-sektionen     --------------------- */
+/* Hologram-bilden: fötterna står på linjen */
 .hologram-panel {
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  align-self: end;
   min-width: 0;
+  margin-bottom: -19px;
 }
 
 .hologram-panel img {
   display: block;
   width: auto;
-  height: 380px;
+  height: 420px;
   max-width: 100%;
   object-fit: contain;
   filter: drop-shadow(0 0 24px rgb(0 170 255 / 35%));
 }
 
+/* På smala skärmar staplas allt, så den negativa marginalen tas bort */
 @media (max-width: 1040px) {
+  .hologram-panel {
+    align-self: auto;
+    margin-bottom: 0;
+  }
+
   .hologram-panel img {
     height: 320px;
   }
