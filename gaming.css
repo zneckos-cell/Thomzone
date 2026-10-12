@@ -1,5 +1,35 @@
 /* Gaming-sidan: kompletterar styles.css */
 
+/* Egna typsnitt per spel */
+.game-head .game-title {
+  margin: 0;
+  color: #eef8ff;
+  line-height: 1;
+}
+
+.game-head .game-title--satisfactory {
+  font-family: "Oxanium", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgb(255 121 25 / 30%);
+}
+
+.game-head .game-title--valheim {
+  font-family: "MedievalSharp", cursive;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: #d8f4ff;
+  text-shadow: 0 0 18px rgb(156 232 255 / 25%);
+}
+
+.game-head .game-title--minecraft {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  color: #9ce8ff;
+  text-shadow: 3px 3px 0 #0a2a3a;
+}
+
 .game-nav {
   margin-top: 0;
 }
@@ -215,7 +245,9 @@
   overflow: hidden;
   border: 1px solid var(--line-soft);
   border-radius: 6px;
-  transition: border-color 160ms ease, transform 160ms ease;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
 }
 
 .gallery a:hover,
