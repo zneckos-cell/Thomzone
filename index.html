@@ -4,14 +4,25 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#03111d" />
-    <meta name="description" content="Thomzone - games, systems, projects, and field notes." />
+    <meta
+      name="description"
+      content="Thomzone - games, systems, projects, and field notes."
+    />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
     <link rel="stylesheet" href="styles.css" />
     <title>Thomzone</title>
   </head>
   <body>
     <div class="background" aria-hidden="true">
-      <video class="background__video" autoplay muted loop playsinline preload="auto" poster="background-poster.webp">
+      <video
+        class="background__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="background-poster.webp"
+      >
         <source src="background.webm" type="video/webm" />
         <source src="background.mp4" type="video/mp4" />
       </video>
@@ -26,14 +37,25 @@
 
       <a class="brand" href="index.html" aria-label="Thomzone, home">
         <span class="brand__mark" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" /><path d="m14.8 9.2-1.7 3.9-3.9 1.7 1.7-3.9 3.9-1.7Z" /><path d="M19 4l1.5-1.5" /></svg>
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8" />
+            <path d="m14.8 9.2-1.7 3.9-3.9 1.7 1.7-3.9 3.9-1.7Z" />
+            <path d="M19 4l1.5-1.5" />
+          </svg>
         </span>
         <span class="brand__status" aria-hidden="true"></span>
-        <span class="brand__copy"><strong>Thomzone</strong><small>Field node / 01</small></span>
+        <span class="brand__copy"
+          ><strong>Thomzone</strong><small>Field node / 01</small></span
+        >
       </a>
 
       <nav class="main-nav" aria-label="Main navigation">
-        <a class="main-nav__link is-active" href="index.html" aria-current="page">Home</a>
+        <a
+          class="main-nav__link is-active"
+          href="index.html"
+          aria-current="page"
+          >Home</a
+        >
         <a class="main-nav__link" href="gaming.html">Gaming</a>
         <a class="main-nav__link" href="tech.html">Tech</a>
         <a class="main-nav__link" href="projects.html">Projects</a>
@@ -54,40 +76,25 @@
                 <i aria-hidden="true"></i>
                 <h1><span>Thomzone</span></h1>
               </div>
-              <p class="hero-intro">Games, systems, projects, and field notes from the edge of the map.</p>
+              <p class="hero-intro">
+                Games, systems, projects, and field notes from the edge of the
+                map.
+              </p>
               <div class="hero-actions">
-                <a class="button button--primary" href="projects.html">Explore projects</a>
-                <a class="button button--secondary" href="about.html">About me</a>
+                <a class="button button--primary" href="projects.html"
+                  >Explore projects</a
+                >
+                <a class="button button--secondary" href="about.html"
+                  >About me</a
+                >
               </div>
             </div>
 
-            <aside class="signal-panel" aria-label="Active signal">
-              <div class="signal-panel__heading">
-                <p>/ &nbsp;// Active signal</p>
-                <span aria-hidden="true">•••</span>
-              </div>
-
-              <div class="signal-graph" aria-label="Signal chart rising from base to maximum">
-                <span class="signal-graph__label signal-graph__label--base">Base</span>
-                <span class="signal-graph__label signal-graph__label--max">Max</span>
-                <svg viewBox="0 0 420 190" preserveAspectRatio="none" aria-hidden="true">
-                  <path class="signal-graph__path" d="M26 153 L124 126 L234 91 L329 61 L395 31" />
-                  <circle cx="26" cy="153" r="6" />
-                  <circle cx="124" cy="126" r="6" />
-                  <circle cx="234" cy="91" r="6" />
-                  <circle cx="329" cy="61" r="6" />
-                  <circle class="signal-graph__point--hot" cx="395" cy="31" r="7" />
-                </svg>
-              </div>
-
-              <dl class="signal-stats">
-                <div><dt>12.8 km</dt><dd>Distance</dd></div>
-                <div><dt>68 %</dt><dd>Route</dd></div>
-                <div><dt>02:14</dt><dd>Elapsed</dd></div>
-              </dl>
-
-              <div class="signal-progress"><span></span></div>
-              <p class="signal-progress__label">Signal stable</p>
+            <aside class="hologram-panel" aria-label="Thomzone hologram">
+              <img
+                src="img\maskot\hologram.png"
+                alt="Robot som håller en hologram av en stad"
+              />
             </aside>
           </div>
 
@@ -95,25 +102,54 @@
 
           <nav class="portal-grid" aria-label="Explore areas">
             <a class="portal-card" href="gaming.html">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8 8h8a5 5 0 0 1 4.8 6.4l-.6 2a2.2 2.2 0 0 1-3.7.9L14.7 15H9.3l-1.8 2.3a2.2 2.2 0 0 1-3.7-.9l-.6-2A5 5 0 0 1 8 8Z" /><path d="M8 11v4M6 13h4M16.5 12h.01M18.5 14h.01" /></svg>
-              <div><h2>Gaming</h2><span></span><p>Sessions, reviews, thoughts.</p></div>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path
+                  d="M8 8h8a5 5 0 0 1 4.8 6.4l-.6 2a2.2 2.2 0 0 1-3.7.9L14.7 15H9.3l-1.8 2.3a2.2 2.2 0 0 1-3.7-.9l-.6-2A5 5 0 0 1 8 8Z"
+                />
+                <path d="M8 11v4M6 13h4M16.5 12h.01M18.5 14h.01" />
+              </svg>
+              <div>
+                <h2>Gaming</h2>
+                <span></span>
+                <p>Sessions, reviews, thoughts.</p>
+              </div>
             </a>
             <a class="portal-card" href="tech.html">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><rect x="4" y="5" width="16" height="11" rx="1" /><path d="M2 19h20M9 16l-1 3M15 16l1 3" /></svg>
-              <div><h2>Tech</h2><span></span><p>Systems, tools, experiments.</p></div>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <rect x="4" y="5" width="16" height="11" rx="1" />
+                <path d="M2 19h20M9 16l-1 3M15 16l1 3" />
+              </svg>
+              <div>
+                <h2>Tech</h2>
+                <span></span>
+                <p>Systems, tools, experiments.</p>
+              </div>
             </a>
             <a class="portal-card" href="projects.html">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" /><path d="m4 7.5 8 4.5 8-4.5M12 12v9" /></svg>
-              <div><h2>Projects</h2><span></span><p>Builds, ideas, in progress.</p></div>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
+                <path d="m4 7.5 8 4.5 8-4.5M12 12v9" />
+              </svg>
+              <div>
+                <h2>Projects</h2>
+                <span></span>
+                <p>Builds, ideas, in progress.</p>
+              </div>
             </a>
             <a class="portal-card" href="about.html">
-              <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4" /><path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2H4Z" /></svg>
-              <div><h2>About</h2><span></span><p>Background, interests, connect.</p></div>
+              <svg aria-hidden="true" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4" />
+                <path d="M4 21v-2a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v2H4Z" />
+              </svg>
+              <div>
+                <h2>About</h2>
+                <span></span>
+                <p>Background, interests, connect.</p>
+              </div>
             </a>
           </nav>
         </div>
       </section>
-
     </main>
 
     <script src="script.js"></script>

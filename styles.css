@@ -94,7 +94,9 @@ svg {
   background: rgb(3 18 30 / 78%);
   box-shadow: 0 15px 50px rgb(0 0 0 / 20%);
   backdrop-filter: blur(16px) saturate(120%);
-  transition: background-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    background-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .site-header.is-scrolled {
@@ -213,7 +215,9 @@ svg {
   border-left: 1px solid var(--line-soft);
   color: #8db2c4;
   font-size: 0.72rem;
-  transition: color 160ms ease, background-color 160ms ease;
+  transition:
+    color 160ms ease,
+    background-color 160ms ease;
 }
 
 .main-nav__link:last-child {
@@ -268,7 +272,9 @@ svg {
   border: 1px solid rgb(139 217 248 / 58%);
   border-radius: 14px;
   background: rgb(3 24 39 / 78%);
-  box-shadow: 0 28px 80px rgb(0 0 0 / 36%), inset 0 0 80px rgb(55 150 191 / 8%);
+  box-shadow:
+    0 28px 80px rgb(0 0 0 / 36%),
+    inset 0 0 80px rgb(55 150 191 / 8%);
   backdrop-filter: blur(20px) saturate(118%);
 }
 
@@ -401,7 +407,10 @@ svg {
   font-size: 0.86rem;
   font-weight: 700;
   text-transform: uppercase;
-  transition: transform 160ms ease, background-color 160ms ease, border-color 160ms ease;
+  transition:
+    transform 160ms ease,
+    background-color 160ms ease,
+    border-color 160ms ease;
 }
 
 .button:hover,
@@ -465,7 +474,9 @@ svg {
   overflow: hidden;
   border: 1px solid var(--line-soft);
   background-color: rgb(2 15 25 / 50%);
-  background-image: linear-gradient(rgb(125 204 237 / 9%) 1px, transparent 1px), linear-gradient(90deg, rgb(125 204 237 / 9%) 1px, transparent 1px);
+  background-image:
+    linear-gradient(rgb(125 204 237 / 9%) 1px, transparent 1px),
+    linear-gradient(90deg, rgb(125 204 237 / 9%) 1px, transparent 1px);
   background-size: 22px 22px;
 }
 
@@ -586,7 +597,10 @@ svg {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: rgb(3 21 35 / 68%);
-  transition: border-color 160ms ease, background-color 160ms ease, transform 160ms ease;
+  transition:
+    border-color 160ms ease,
+    background-color 160ms ease,
+    transform 160ms ease;
 }
 
 .portal-card:hover,
@@ -1047,5 +1061,33 @@ svg {
   *::before,
   *::after {
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* Hologram-bilden i hero-sektionen */
+.hologram-panel {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.hologram-panel img {
+  display: block;
+  width: auto;
+  height: 380px;
+  max-width: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 0 24px rgb(0 170 255 / 35%));
+}
+
+@media (max-width: 1040px) {
+  .hologram-panel img {
+    height: 320px;
+  }
+}
+
+@media (max-width: 540px) {
+  .hologram-panel img {
+    height: 260px;
   }
 }
