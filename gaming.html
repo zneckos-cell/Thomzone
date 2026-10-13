@@ -188,13 +188,13 @@
             <aside class="data-panel">
               <div class="data-panel__heading">
                 <p>// Server status</p>
-                <span>Live</span>
+                <span>Manual</span>
               </div>
               <h2>Night Signal</h2>
               <dl class="data-list">
                 <div>
                   <dt>Satisfactory</dt>
-                  <dd>Offline</dd>
+                  <dd>Online</dd>
                 </div>
                 <div>
                   <dt>Valheim</dt>
@@ -205,6 +205,7 @@
                   <dd>Offline</dd>
                 </div>
               </dl>
+              <p class="data-panel__note">Check Discord for availability and server updates.</p>
             </aside>
           </div>
           <div class="command-panel__divider"></div>
@@ -255,85 +256,86 @@
             >
               Satisfactory
             </h2>
-            <p>Automation, factories, and building things that work.</p>
+            <p>We are starting a shared world on a random seed. Come help us build the factory from the ground up.</p>
           </div>
-          <span class="status status--offline">Offline</span>
+          <span class="status status--online">Online</span>
         </div>
 
         <div class="game-grid">
           <article class="card">
-            <h3>Information</h3>
-            <p>
-              Beskrivning av servern: spelläge, regler, mods och vad som gäller
-              för nya spelare.
-            </p>
+            <h3>Join the world</h3>
+            <p>New players are welcome. Join our Discord first to get the server password and find out when the world is online.</p>
+            <a class="button button--primary" href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">Join the Discord</a>
           </article>
 
           <article class="card">
-            <h3>Server</h3>
+            <h3>Server details</h3>
             <dl class="server-list">
               <div>
-                <dt>IP / DNS</dt>
-                <dd>
-                  satisfactory.example.com
-                  <button
-                    class="copy-btn"
-                    type="button"
-                    data-copy="satisfactory.example.com"
-                  >
-                    Kopiera
-                  </button>
-                </dd>
+                <dt>Version</dt>
+                <dd>1.2</dd>
               </div>
               <div>
-                <dt>Spelare</dt>
-                <dd>0/8</dd>
+                <dt>World</dt>
+                <dd>Random seed</dd>
+              </div>
+              <div>
+                <dt>Mods</dt>
+                <dd>None</dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>Password protected</dd>
+              </div>
+              <div>
+                <dt>Password</dt>
+                <dd>Shared in Discord</dd>
               </div>
             </dl>
           </article>
 
           <article class="card card--wide">
-            <h3>Discord-chatt</h3>
+            <h3>About this world</h3>
+            <p>This is a world we’re forming together. Start from a random seed, then help us grow the factory.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Server rules</h3>
+            <ul class="server-rules">
+              <li>No cheating, including item duplication.</li>
+              <li>No griefing. Respect other players and the shared world.</li>
+              <li>Do not take other players’ items without asking. If you need supplies, ask—we are usually happy to help.</li>
+              <li>Use your in-game name, or a recognizable version of it, in Discord.</li>
+            </ul>
+            <p class="server-rules__note">Use common sense, be kind, and help us build this world together.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord chat</h3>
             <div class="chat" id="chat-satisfactory">
-              <p class="chat-note">Laddar chatt...</p>
+              <p class="chat-note">Loading chat...</p>
             </div>
           </article>
 
           <article class="card card--wide">
-            <h3>Bilder</h3>
+            <h3>World screenshots</h3>
             <div class="gallery">
-              <a href="img/satisfactory/1.jpg"
-                ><img
-                  src="img/satisfactory/1.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Satisfactory skärmbild 1"
-                  loading="lazy"
-              /></a>
-              <a href="img/satisfactory/2.jpg"
-                ><img
-                  src="img/satisfactory/2.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Satisfactory skärmbild 2"
-                  loading="lazy"
-              /></a>
-              <a href="img/satisfactory/3.jpg"
-                ><img
-                  src="img/satisfactory/3.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Satisfactory skärmbild 3"
-                  loading="lazy"
-              /></a>
-              <a href="img/satisfactory/4.jpg"
-                ><img
-                  src="img/satisfactory/4.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Satisfactory skärmbild 4"
-                  loading="lazy"
-              /></a>
+              <figure>
+                <a href="img/satisfactory/1.jpg"><img src="img/satisfactory/1.jpg" width="1920" height="1080" alt="A vast industrial factory spread across an alien landscape" loading="lazy" /></a>
+                <figcaption>A look across the planet’s growing factory skyline.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/satisfactory/2.jpg"><img src="img/satisfactory/2.jpg" width="1280" height="720" alt="Two FICSIT pioneers looking out over the planet in Satisfactory 1.2" loading="lazy" /></a>
+                <figcaption>Ready to explore the world in update 1.2.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/satisfactory/3.jpg"><img src="img/satisfactory/3.jpg" width="1000" height="563" alt="Rocky highlands and distant mountains under a wide blue sky" loading="lazy" /></a>
+                <figcaption>A quiet view over the rocky highlands.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/satisfactory/4.jpg"><img src="img/satisfactory/4.jpg" width="1920" height="1080" alt="A giant alien creature towering over the landscape" loading="lazy" /></a>
+                <figcaption>There is more to explore than factories.</figcaption>
+              </figure>
             </div>
           </article>
         </div>
@@ -351,85 +353,81 @@
             <h2 id="valheim-title" class="game-title game-title--valheim">
               Valheim
             </h2>
-            <p>Survival, vikingar och en värld som inte gör det lätt.</p>
+            <p>A shared Norse survival world where we build, explore, and take on bosses together.</p>
           </div>
           <span class="status status--online">Online</span>
         </div>
 
         <div class="game-grid">
           <article class="card">
-            <h3>Information</h3>
-            <p>
-              Beskrivning av servern: världsnamn, regler, bas-tips och vad som
-              gäller för nya spelare.
-            </p>
+            <h3>Join the world</h3>
+            <p>New players are welcome. Join our Discord first to request a whitelist spot and get the server password.</p>
+            <a class="button button--primary" href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">Join the Discord</a>
           </article>
 
           <article class="card">
-            <h3>Server</h3>
+            <h3>Server details</h3>
             <dl class="server-list">
               <div>
-                <dt>IP / DNS</dt>
-                <dd>
-                  valheim.example.com
-                  <button
-                    class="copy-btn"
-                    type="button"
-                    data-copy="valheim.example.com"
-                  >
-                    Kopiera
-                  </button>
-                </dd>
+                <dt>Version</dt>
+                <dd>Latest</dd>
               </div>
               <div>
-                <dt>Spelare</dt>
-                <dd>8/8</dd>
+                <dt>Access</dt>
+                <dd>Whitelist</dd>
+              </div>
+              <div>
+                <dt>Password</dt>
+                <dd>Shared in Discord</dd>
               </div>
             </dl>
           </article>
 
           <article class="card card--wide">
-            <h3>Discord-chatt</h3>
+            <h3>About this world</h3>
+            <p>We build and explore together. Boss fights are group events planned in Discord.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Server rules</h3>
+            <ul class="server-rules">
+              <li>Play fair: no cheats, exploits, or griefing.</li>
+              <li>Respect other players and their belongings. Ask before taking anything; we are happy to help if you need supplies.</li>
+              <li>You may bring existing characters and equipment, but do not server-hop to move items or bypass progression.</li>
+              <li>Boss fights are group events. We aim to take on about one boss per week; check Discord to arrange the next fight.</li>
+              <li>Mark cleared dungeons with a wooden cross at the entrance so others know.</li>
+              <li>Use your in-game name, or a recognizable version of it, in Discord.</li>
+              <li>Keep the “Visible to other players” setting enabled.</li>
+            </ul>
+            <p class="server-rules__note">These rules rely on trust, respect, and common sense. Have fun and skål!</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord chat</h3>
             <div class="chat" id="chat-valheim">
-              <p class="chat-note">Laddar chatt...</p>
+              <p class="chat-note">Loading chat...</p>
             </div>
           </article>
 
           <article class="card card--wide">
-            <h3>Bilder</h3>
+            <h3>World screenshots</h3>
             <div class="gallery">
-              <a href="img/valheim/1.jpg"
-                ><img
-                  src="img/valheim/1.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Valheim skärmbild 1"
-                  loading="lazy"
-              /></a>
-              <a href="img/valheim/2.jpg"
-                ><img
-                  src="img/valheim/2.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Valheim skärmbild 2"
-                  loading="lazy"
-              /></a>
-              <a href="img/valheim/3.jpg"
-                ><img
-                  src="img/valheim/3.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Valheim skärmbild 3"
-                  loading="lazy"
-              /></a>
-              <a href="img/valheim/4.jpg"
-                ><img
-                  src="img/valheim/4.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Valheim skärmbild 4"
-                  loading="lazy"
-              /></a>
+              <figure>
+                <a href="img/valheim/1.jpg"><img src="img/valheim/1.jpg" width="1920" height="1080" alt="A wooden longhouse and dining hall lit by its central hearth" loading="lazy" /></a>
+                <figcaption>The great hall, ready for a shared feast.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/valheim/2.jpg"><img src="img/valheim/2.jpg" width="1920" height="1080" alt="A bridge crossing the river beside the settlement" loading="lazy" /></a>
+                <figcaption>A raised bridge linking the settlement across the river.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/valheim/3.jpg"><img src="img/valheim/3.jpg" width="1920" height="1080" alt="A timber longhouse glowing in the evening light" loading="lazy" /></a>
+                <figcaption>The longhouse at dusk, with lights welcoming players home.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/valheim/4.jpg"><img src="img/valheim/4.jpg" width="1920" height="1080" alt="A large stone keep with a tall watchtower" loading="lazy" /></a>
+                <figcaption>A stone keep and watchtower rising above the forest.</figcaption>
+              </figure>
             </div>
           </article>
         </div>
@@ -447,85 +445,87 @@
             <h2 id="minecraft-title" class="game-title game-title--minecraft">
               Minecraft
             </h2>
-            <p>Bygg, utforska och mysa tillsammans.</p>
+            <p>A modded Java world where we build, explore, and try new things together.</p>
           </div>
           <span class="status status--offline">Offline</span>
         </div>
 
         <div class="game-grid">
           <article class="card">
-            <h3>Information</h3>
-            <p>
-              Beskrivning av servern: version, regler, plugins och vad som
-              gäller för nya spelare.
-            </p>
+            <h3>Join the world</h3>
+            <p>New players are welcome. Join our Discord for availability, the server password, the current modpack, and setup instructions.</p>
+            <a class="button button--primary" href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">Join the Discord</a>
           </article>
 
           <article class="card">
-            <h3>Server</h3>
+            <h3>Server details</h3>
             <dl class="server-list">
               <div>
-                <dt>IP / DNS</dt>
-                <dd>
-                  minecraft.example.com
-                  <button
-                    class="copy-btn"
-                    type="button"
-                    data-copy="minecraft.example.com"
-                  >
-                    Kopiera
-                  </button>
-                </dd>
+                <dt>Edition</dt>
+                <dd>Java</dd>
               </div>
               <div>
-                <dt>Spelare</dt>
-                <dd>0/8</dd>
+                <dt>Version</dt>
+                <dd>Depends on modpack</dd>
+              </div>
+              <div>
+                <dt>Mods</dt>
+                <dd>Varies</dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>Password protected</dd>
+              </div>
+              <div>
+                <dt>Password</dt>
+                <dd>Shared in Discord</dd>
               </div>
             </dl>
           </article>
 
           <article class="card card--wide">
-            <h3>Discord-chatt</h3>
+            <h3>About this world</h3>
+            <p>The best part is the people—we’re here, we’re awesome, and we make this world together.</p>
+            <p class="server-rules__note">The modpack changes over time. Popular mods you may see include Create, Just Enough Items (JEI), and Xaero’s Minimap. Check Discord for the current pack and exact version.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Server rules</h3>
+            <ul class="server-rules">
+              <li>No cheating or X-ray.</li>
+              <li>No griefing. Respect other players and the shared world.</li>
+              <li>Do not take other players’ items without asking. If you need supplies, ask—we are usually happy to help.</li>
+              <li>Use your in-game name, or a recognizable version of it, in Discord.</li>
+            </ul>
+            <p class="server-rules__note">Use common sense, be kind, and have fun building together.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord chat</h3>
             <div class="chat" id="chat-minecraft">
-              <p class="chat-note">Laddar chatt...</p>
+              <p class="chat-note">Loading chat...</p>
             </div>
           </article>
 
           <article class="card card--wide">
-            <h3>Bilder</h3>
+            <h3>World screenshots</h3>
             <div class="gallery">
-              <a href="img/minecraft/1.jpg"
-                ><img
-                  src="img/minecraft/1.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Minecraft skärmbild 1"
-                  loading="lazy"
-              /></a>
-              <a href="img/minecraft/2.jpg"
-                ><img
-                  src="img/minecraft/2.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Minecraft skärmbild 2"
-                  loading="lazy"
-              /></a>
-              <a href="img/minecraft/3.jpg"
-                ><img
-                  src="img/minecraft/3.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Minecraft skärmbild 3"
-                  loading="lazy"
-              /></a>
-              <a href="img/minecraft/4.jpg"
-                ><img
-                  src="img/minecraft/4.jpg"
-                  width="1920"
-                  height="1080"
-                  alt="Minecraft skärmbild 4"
-                  loading="lazy"
-              /></a>
+              <figure>
+                <a href="img/minecraft/1.jpg"><img src="img/minecraft/1.jpg" width="1920" height="1080" alt="A large brown bear standing in a sunlit forest" loading="lazy" /></a>
+                <figcaption>A modded bear encounter in the forest.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/minecraft/2.jpg"><img src="img/minecraft/2.jpg" width="1920" height="1080" alt="A Minecraft town of timber and brick buildings" loading="lazy" /></a>
+                <figcaption>A busy town of timber, brick, and rooftops.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/minecraft/3.jpg"><img src="img/minecraft/3.jpg" width="1920" height="1080" alt="Promotional artwork for Mods of Myth" loading="lazy" /></a>
+                <figcaption>A glimpse of the Mods of Myth adventure.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/minecraft/4.jpg"><img src="img/minecraft/4.jpg" width="1920" height="1080" alt="A purple cottage glowing beneath the night sky" loading="lazy" /></a>
+                <figcaption>A lantern-lit cottage beneath the night sky.</figcaption>
+              </figure>
             </div>
           </article>
         </div>
@@ -538,20 +538,20 @@
       id="lightbox"
       role="dialog"
       aria-modal="true"
-      aria-label="Bildvisare"
+      aria-label="Image viewer"
       hidden
     >
       <button
         class="lightbox__btn lightbox__close"
         type="button"
-        aria-label="Stäng"
+        aria-label="Close"
       >
         ×
       </button>
       <button
         class="lightbox__btn lightbox__prev"
         type="button"
-        aria-label="Föregående bild"
+        aria-label="Previous image"
       >
         ‹
       </button>
@@ -562,7 +562,7 @@
       <button
         class="lightbox__btn lightbox__next"
         type="button"
-        aria-label="Nästa bild"
+        aria-label="Next image"
       >
         ›
       </button>
@@ -570,16 +570,16 @@
 
     <script src="script.js"></script>
     <script>
-      // Kopiera IP/DNS till urklipp
+      // Copy IP/DNS to clipboard
       document.querySelectorAll(".copy-btn").forEach((btn) => {
         btn.addEventListener("click", async () => {
           try {
             await navigator.clipboard.writeText(btn.dataset.copy);
-            btn.textContent = "Kopierad";
+            btn.textContent = "Copied";
           } catch {
-            btn.textContent = "Fel";
+            btn.textContent = "Error";
           }
-          setTimeout(() => (btn.textContent = "Kopiera"), 1500);
+          setTimeout(() => (btn.textContent = "Copy"), 1500);
         });
       });
 
@@ -665,7 +665,7 @@
           const messages = await response.json();
 
           if (messages.length === 0) {
-            container.innerHTML = `<p class="chat-note">Inga meddelanden ännu.</p>`;
+            container.innerHTML = `<p class="chat-note">No messages yet.</p>`;
             return;
           }
 
@@ -684,7 +684,7 @@
             )
             .join("");
         } catch (error) {
-          container.innerHTML = `<p class="chat-note">Chatten kunde inte laddas.</p>`;
+          container.innerHTML = `<p class="chat-note">Chat could not be loaded.</p>`;
         }
       }
 

@@ -13,6 +13,202 @@
   --page-width: 1150px;
   --header-height: 60px;
 }
+ 
+/* Thomzone signal boot intro */
+@property --intro-hole {
+  syntax: "<length>";
+  inherits: false;
+  initial-value: 0px;
+}
+
+.intro-overlay {
+  display: none;
+}
+
+.intro-playing .intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  color: #d9f8ff;
+  background: #02070d;
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0 var(--intro-hole), #000 calc(var(--intro-hole) + 2px));
+  mask-image: radial-gradient(circle at 50% 50%, transparent 0 var(--intro-hole), #000 calc(var(--intro-hole) + 2px));
+  animation: intro-open 2.8s cubic-bezier(.65, 0, .24, 1) forwards;
+}
+
+.intro-overlay::before,
+.intro-overlay::after {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  content: "";
+}
+
+.intro-overlay::before {
+  background: radial-gradient(circle at center, transparent 0 12rem, rgb(2 7 13 / 84%) 32rem), repeating-linear-gradient(0deg, transparent 0 3px, rgb(107 218 255 / 4%) 4px 5px);
+}
+
+.intro-overlay::after {
+  inset: 22px;
+  border: 1px solid rgb(107 218 255 / 18%);
+  box-shadow: inset 0 0 70px rgb(29 154 207 / 8%), 0 0 70px rgb(29 154 207 / 8%);
+}
+
+.intro-overlay__core {
+  position: relative;
+  display: grid;
+  width: min(68vw, 390px);
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid rgb(124 224 255 / 32%);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgb(45 155 197 / 18%), rgb(4 17 28 / 52%) 48%, transparent 70%);
+  box-shadow: 0 0 35px rgb(53 190 236 / 28%), inset 0 0 34px rgb(53 190 236 / 18%);
+  animation: intro-core 2.8s ease-in-out forwards;
+}
+
+.intro-overlay__core::before,
+.intro-overlay__core::after {
+  position: absolute;
+  width: 124%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgb(124 224 255 / 65%), transparent);
+  content: "";
+}
+
+.intro-overlay__core::after { transform: rotate(90deg); }
+
+.intro-overlay__orbit {
+  position: absolute;
+  border: 1px solid rgb(124 224 255 / 55%);
+  border-radius: 50%;
+}
+
+.intro-overlay__orbit--outer {
+  inset: -12%;
+  border-top-color: var(--orange);
+  border-right-color: transparent;
+  box-shadow: 0 0 18px rgb(255 121 25 / 55%);
+  animation: intro-spin 2.8s linear forwards;
+}
+
+.intro-overlay__orbit--inner {
+  inset: 13%;
+  border-bottom-color: var(--orange);
+  border-left-color: transparent;
+  box-shadow: inset 0 0 20px rgb(53 190 236 / 15%);
+  animation: intro-spin-reverse 2.8s linear forwards;
+}
+
+.intro-overlay__core-mark {
+  z-index: 1;
+  color: #e7fbff;
+  font: 700 clamp(2rem, 8vw, 4rem)/1 Consolas, "Courier New", monospace;
+  letter-spacing: .16em;
+  text-shadow: 0 0 25px #59d9ff;
+}
+
+.intro-overlay__caption {
+  position: absolute;
+  top: calc(100% + 42px);
+  color: #9ce8ff;
+  font: 600 .65rem/1.4 Consolas, "Courier New", monospace;
+  letter-spacing: .24em;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.intro-overlay__spark {
+  position: absolute;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #ff9b45;
+  box-shadow: 0 0 18px 5px rgb(255 121 25 / 68%);
+}
+
+.intro-overlay__spark--one {
+  top: 5%;
+  left: 22%;
+  animation: intro-spark 1.2s ease-out infinite alternate;
+}
+
+.intro-overlay__spark--two {
+  right: 8%;
+  bottom: 24%;
+  background: #9ce8ff;
+  box-shadow: 0 0 18px 5px rgb(71 208 255 / 65%);
+  animation: intro-spark 1.5s ease-in-out .2s infinite alternate-reverse;
+}
+
+.intro-overlay__skip {
+  position: absolute;
+  right: 42px;
+  bottom: 34px;
+  z-index: 2;
+  padding: 10px 14px;
+  border: 1px solid rgb(124 224 255 / 35%);
+  color: #c8f4ff;
+  background: rgb(3 18 30 / 70%);
+  font: 600 .68rem Consolas, "Courier New", monospace;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.intro-overlay__skip:hover,
+.intro-overlay__skip:focus-visible {
+  border-color: var(--orange);
+  outline: 2px solid transparent;
+  color: #fff;
+  box-shadow: 0 0 18px rgb(255 121 25 / 25%);
+}
+
+@keyframes intro-open {
+  0% { --intro-hole: 0px; }
+  62% { --intro-hole: 15vmin; }
+  100% { --intro-hole: 160vmax; }
+}
+
+@keyframes intro-core {
+  0%, 15% { opacity: 0; transform: scale(.55); }
+  38% { opacity: 1; transform: scale(1); }
+  76% { opacity: 1; transform: scale(1.08); }
+  100% { opacity: 0; transform: scale(1.45); }
+}
+
+@keyframes intro-spin { to { transform: rotate(420deg); } }
+@keyframes intro-spin-reverse { to { transform: rotate(-300deg); } }
+@keyframes intro-spark { to { opacity: .35; transform: scale(.5); } }
+
+@media (max-width: 540px) {
+  .intro-overlay::after { inset: 12px; }
+  .intro-overlay__skip { right: 24px; bottom: 24px; }
+  .intro-overlay__caption { top: calc(100% + 30px); font-size: .55rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-playing .intro-overlay { display: none; }
+}
+
+@media (hover: hover) and (pointer: fine) {
+  body,
+  body * {
+    cursor: url("cursor.svg") 3 2, auto;
+  }
+
+  :where(a, button, [role="button"], input[type="button"], input[type="submit"], input[type="reset"], summary) {
+    cursor: url("cursor-link.svg") 3 2, pointer !important;
+  }
+
+  :where(input[type="text"], input[type="email"], input[type="search"], input[type="url"], input[type="password"], textarea, [contenteditable="true"]) {
+    cursor: text !important;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -20,13 +216,11 @@
 }
 
 html {
-  min-width: 320px;
   scroll-behavior: smooth;
   scroll-padding-top: 116px;
 }
 
 body {
-  min-width: 320px;
   min-height: 100vh;
   margin: 0;
   overflow-x: hidden;
@@ -394,6 +588,13 @@ svg {
   margin-top: 23px;
 }
 
+.hero-note {
+  margin: 14px 0 0;
+  color: #8eadbc;
+  font-size: 0.78rem;
+  line-height: 1.5;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
@@ -588,6 +789,10 @@ svg {
   gap: 16px;
 }
 
+.portal-grid--games {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
 .portal-card {
   display: grid;
   grid-template-columns: 44px minmax(0, 1fr);
@@ -742,6 +947,13 @@ svg {
 
 .data-panel__heading span {
   color: #64e6c3;
+}
+
+.data-panel__note {
+  margin: 14px 0 0;
+  color: #91adba;
+  font-size: 0.78rem;
+  line-height: 1.55;
 }
 
 .data-panel h2 {
@@ -1100,6 +1312,10 @@ svg {
   .page-section {
     scroll-margin-top: 132px;
   }
+
+  .portal-grid--games {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 540px) {
@@ -1118,9 +1334,9 @@ svg {
   }
 
   .main-nav__link {
-    min-width: 72px;
-    padding: 0 9px;
-    font-size: 0.65rem;
+    min-width: 50px;
+    padding: 0 4px;
+    font-size: 0.56rem;
   }
 
   .hero-section {
