@@ -88,7 +88,6 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
   let requestNumber = 0;
   let navigationQueue = Promise.resolve();
   const cache = new Map();
-  const images = new Map();
   const styleLoads = new Map();
   const stage = document.createElement('div');
   stage.className = 'page-flow';
@@ -110,19 +109,6 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
     clearTimeout(scrollTimer);
     if (!navigating) scrollTimer = setTimeout(() => { if (!navigating) rememberScroll(); }, 100);
   }, { passive: true });
-
-  function preloadImages(main) {
-    main.querySelectorAll('img[src]').forEach(img => {
-      img.loading = 'eager';
-      img.decoding = 'async';
-      const source = new URL(img.getAttribute('src'), base).href;
-      if (images.has(source)) return;
-      const image = new Image();
-      image.decoding = 'async';
-      image.src = source;
-      images.set(source, image);
-    });
-  }
 
   function loadStyles(doc) {
     return Promise.all([...doc.querySelectorAll('link[rel="stylesheet"]')].map(link => {
@@ -155,8 +141,6 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
       const main = doc.querySelector('main');
       if (!main) throw new Error(`Missing page content: ${key}`);
       main.querySelectorAll('script').forEach(script => script.remove());
-      preloadImages(main);
-      initializePage(main);
       installLightbox(doc);
       await loadStyles(doc);
       return snapshot(doc, main);
@@ -216,6 +200,7 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
       outgoing.setAttribute('aria-hidden', 'true');
       page.main.inert = false;
       stage.append(page.main);
+      initializePage(page.main);
       currentMain = page.main;
     }
     currentKey = key;
@@ -283,7 +268,31 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
   });
 
   // Initialize each cached page once. Keeping its DOM also preserves local state.
+  const initializedPages = new WeakSet();
+  let serverStatusRequest;
+  function updateServerStatuses(main) {
+    serverStatusRequest ??= fetch(new URL('data/server-status.json', base), { signal: AbortSignal.timeout(10000) })
+      .then(response => { if (!response.ok) throw new Error('Status unavailable'); return response.json(); })
+      .catch(() => ({}));
+    serverStatusRequest.then(servers => {
+      main.querySelectorAll('[data-server-status]').forEach(badge => {
+        const server = servers[badge.dataset.serverStatus];
+        if (!server || !['online', 'offline'].includes(server.status)) return;
+        badge.classList.remove('status--unknown');
+        badge.classList.add(`status--${server.status}`);
+        badge.textContent = server.status === 'online' ? 'Reported online' : 'Reported offline';
+        const note = main.querySelector(`[data-server-note="${badge.dataset.serverStatus}"]`);
+        const checked = server.checkedAt && new Date(server.checkedAt);
+        if (note) note.textContent = checked && !Number.isNaN(checked.getTime())
+          ? `Manual update: ${checked.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })}. Confirm in Discord.`
+          : 'Manual status · confirm availability in Discord';
+      });
+    });
+  }
   function initializePage(main) {
+    updateServerStatuses(main);
+    if (initializedPages.has(main)) return;
+    initializedPages.add(main);
     main.querySelectorAll('.copy-btn').forEach(button => {
       button.addEventListener('click', async () => {
         const original = button.textContent;
@@ -386,8 +395,7 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
   cache.set(currentKey, Promise.resolve(snapshot(document, initialMain)));
   installLightbox(document);
   initializePage(initialMain);
-  preloadImages(initialMain);
-  // Fetch every flow page right away; each image is requested only once.
+  // Cache page markup; images and chats load only when their page is opened.
   Promise.allSettled(pages.filter(key => key !== currentKey).map(loadPage)).then(results => {
     document.documentElement.dataset.flowReady = results.every(result => result.status === 'fulfilled') ? 'true' : 'partial';
   });

@@ -36,7 +36,7 @@
   background: #02070d;
   -webkit-mask-image: radial-gradient(circle at 50% 50%, transparent 0 var(--intro-hole), #000 calc(var(--intro-hole) + 2px));
   mask-image: radial-gradient(circle at 50% 50%, transparent 0 var(--intro-hole), #000 calc(var(--intro-hole) + 2px));
-  animation: intro-open 2.8s cubic-bezier(.65, 0, .24, 1) forwards;
+  animation: intro-open 1s cubic-bezier(.65, 0, .24, 1) forwards;
 }
 
 .intro-overlay::before,
@@ -67,7 +67,7 @@
   border-radius: 50%;
   background: radial-gradient(circle, rgb(45 155 197 / 18%), rgb(4 17 28 / 52%) 48%, transparent 70%);
   box-shadow: 0 0 35px rgb(53 190 236 / 28%), inset 0 0 34px rgb(53 190 236 / 18%);
-  animation: intro-core 2.8s ease-in-out forwards;
+  animation: intro-core 1s ease-in-out forwards;
 }
 
 .intro-overlay__core::before,
@@ -92,7 +92,7 @@
   border-top-color: var(--orange);
   border-right-color: transparent;
   box-shadow: 0 0 18px rgb(255 121 25 / 55%);
-  animation: intro-spin 2.8s linear forwards;
+  animation: intro-spin 1s linear forwards;
 }
 
 .intro-overlay__orbit--inner {
@@ -100,7 +100,7 @@
   border-bottom-color: var(--orange);
   border-left-color: transparent;
   box-shadow: inset 0 0 20px rgb(53 190 236 / 15%);
-  animation: intro-spin-reverse 2.8s linear forwards;
+  animation: intro-spin-reverse 1s linear forwards;
 }
 
 .intro-overlay__core-mark {
@@ -1545,3 +1545,10 @@ svg {
   white-space: nowrap;
 }
 .page-content:focus { outline: none; }
+
+/* Status text keeps the decorative portal divider separate. */
+.portal-card .server-status { display: inline-flex; width: auto; height: auto; margin-top: 12px; background: transparent; }
+.portal-card .server-status-note { display: block; width: auto; height: auto; margin-top: 7px; background: transparent; color: #aac4d2; font-size: .75rem; line-height: 1.5; }
+.status--unknown { color: #aac4d2; border-color: #698899; }
+.game-head__status { display: grid; justify-items: start; gap: 8px; }
+.game-head__status small { max-width: 210px; color: #aac4d2; line-height: 1.5; }
