@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#03111d" />
+    <meta name="description" content="Gaming archive - Thomzone." />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Oxanium:wght@700&family=MedievalSharp&family=Silkscreen&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="gaming.css" />
+    <title>Gaming · Thomzone</title>
+  </head>
+  <body>
+    <div class="background" aria-hidden="true">
+      <video
+        class="background__video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="background-poster.webp"
+      >
+        <source src="background.webm" type="video/webm" />
+        <source src="background.mp4" type="video/mp4" />
+      </video>
+      <div class="background__overlay"></div>
+    </div>
+
+    <header class="site-header">
+      <i class="frame-corner frame-corner--tl" aria-hidden="true"></i
+      ><i class="frame-corner frame-corner--tr" aria-hidden="true"></i
+      ><i class="frame-corner frame-corner--bl" aria-hidden="true"></i
+      ><i class="frame-corner frame-corner--br" aria-hidden="true"></i>
+      <a class="brand" href="index.html" aria-label="Thomzone, home"
+        ><span class="brand__mark" aria-hidden="true"
+          ><svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="8" />
+            <path d="m14.8 9.2-1.7 3.9-3.9 1.7 1.7-3.9 3.9-1.7Z" />
+            <path d="M19 4l1.5-1.5" /></svg></span
+        ><span class="brand__status" aria-hidden="true"></span
+        ><span class="brand__copy"
+          ><strong>Thomzone</strong><small>Field node / 07</small></span
+        ></a
+      >
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="main-nav__link" href="index.html">Home</a
+        ><a
+          class="main-nav__link is-active"
+          href="gaming.html"
+          aria-current="page"
+          >Gaming</a
+        ><a class="main-nav__link" href="tech.html">Tech</a
+        ><a class="main-nav__link" href="projects.html">Projects</a
+        ><a class="main-nav__link" href="about.html">About</a>
+      </nav>
+    </header>
+
+    <main class="page-content">
+      <section class="hero-section">
+        <div class="command-panel inner-page-panel">
+          <i class="panel-corner panel-corner--tl" aria-hidden="true"></i
+          ><i class="panel-corner panel-corner--br" aria-hidden="true"></i>
+          <div class="inner-page-grid gaming-hero">
+            <div class="inner-page-copy">
+              <p class="kicker"><span></span>// Game_Archive_02</p>
+              <h1>Gaming</h1>
+              <p class="inner-page-lead">
+                Sessions, servers, and field notes from every world worth
+                getting lost in.
+              </p>
+              <div class="tag-row">
+                <span>Satisfactory</span><span>Valheim</span
+                ><span>Minecraft</span>
+              </div>
+            </div>
+            <aside class="gaming-mascot">
+              <img
+                src="img/maskot/gamingmaskot-transparent.png"
+                width="1536"
+                height="1024"
+                alt="Thomzones blå och orange robot spelar med en handkontroll framför en holografisk spelskärm"
+                decoding="async"
+              />
+            </aside>
+          </div>
+          <div class="command-panel__divider"></div>
+          <nav class="portal-grid game-nav" aria-label="Choose game">
+            <a
+              class="portal-card portal-card--satisfactory"
+              href="#satisfactory"
+            >
+              <b>01</b>
+              <div>
+                <h2>Satisfactory</h2>
+                <span></span>
+                <p>Factories, belts, and blueprints.</p>
+              </div>
+            </a>
+            <a class="portal-card portal-card--valheim" href="#valheim">
+              <b>02</b>
+              <div>
+                <h2>Valheim</h2>
+                <span></span>
+                <p>Norse survival and long nights.</p>
+              </div>
+            </a>
+            <a class="portal-card portal-card--minecraft" href="#minecraft">
+              <b>03</b>
+              <div>
+                <h2>Minecraft</h2>
+                <span></span>
+                <p>Building, mining, and exploring.</p>
+              </div>
+            </a>
+          </nav>
+        </div>
+      </section>
+
+      <!-- SATISFACTORY -->
+      <section
+        class="game-section"
+        id="satisfactory"
+        aria-labelledby="satisfactory-title"
+      >
+        <div class="game-head">
+          <div>
+            <p class="section-code">// Satisfactory</p>
+            <h2
+              id="satisfactory-title"
+              class="game-title game-title--satisfactory"
+            >
+              Satisfactory
+            </h2>
+            <p>We are starting a shared world on a random seed. Come help us build the factory from the ground up.</p>
+          </div>
+          <span class="status status--online">Online</span>
+        </div>
+
+        <div class="game-grid">
+          <article class="card">
+            <h3>Join the world</h3>
+            <p>New players are welcome. Join our Discord first to get the server password and find out when the world is online.</p>
+            <a class="button button--primary" href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+          </article>
+
+          <article class="card">
+            <h3>Server details</h3>
+            <dl class="server-list">
+              <div>
+                <dt>Version</dt>
+                <dd>1.2</dd>
+              </div>
+              <div>
+                <dt>World</dt>
+                <dd>Random seed</dd>
+              </div>
+              <div>
+                <dt>Mods</dt>
+                <dd>None</dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>Password protected</dd>
+              </div>
+              <div>
+                <dt>Password</dt>
+                <dd>Shared in Discord</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="card card--wide">
+            <h3>About this world</h3>
+            <p>This is a world we’re forming together. Start from a random seed, then help us grow the factory.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Server rules</h3>
+            <ul class="server-rules">
+              <li>No cheating, including item duplication.</li>
+              <li>No griefing. Respect other players and the shared world.</li>
+              <li>Do not take other players’ items without asking. If you need supplies, ask—we are usually happy to help.</li>
+              <li>Use your in-game name, or a recognizable version of it, in Discord.</li>
+            </ul>
+            <p class="server-rules__note">Use common sense, be kind, and help us build this world together.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord chat</h3>
+            <div class="chat" id="chat-satisfactory">
+              <p class="chat-note">Loading chat...</p>
+            </div>
+          </article>
+
+          <article class="card card--wide">
+            <h3>World screenshots</h3>
+            <p class="server-rules__note">A few moments from our worlds. Find more screenshots and share your own in <a href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">our Discord</a>.</p>
+            <div class="gallery">
+              <figure>
+                <a href="img/satisfactory/1.jpg"><img src="img/satisfactory/1.jpg" width="1920" height="1080" alt="A vast industrial factory spread across an alien landscape" loading="lazy" /></a>
+                <figcaption>A look across the planet’s growing factory skyline.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/satisfactory/2.jpg"><img src="img/satisfactory/2.jpg" width="1280" height="720" alt="Two FICSIT pioneers looking out over the planet in Satisfactory 1.2" loading="lazy" /></a>
+                <figcaption>Ready to explore the world in update 1.2.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/satisfactory/3.jpg"><img src="img/satisfactory/3.jpg" width="1000" height="563" alt="Rocky highlands and distant mountains under a wide blue sky" loading="lazy" /></a>
+                <figcaption>A quiet view over the rocky highlands.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/satisfactory/4.jpg"><img src="img/satisfactory/4.jpg" width="1920" height="1080" alt="A giant alien creature towering over the landscape" loading="lazy" /></a>
+                <figcaption>There is more to explore than factories.</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- VALHEIM -->
+      <section
+        class="game-section"
+        id="valheim"
+        aria-labelledby="valheim-title"
+      >
+        <div class="game-head">
+          <div>
+            <p class="section-code">// Valheim</p>
+            <h2 id="valheim-title" class="game-title game-title--valheim">
+              Valheim
+            </h2>
+            <p>A shared Norse survival world where we build, explore, and take on bosses together.</p>
+          </div>
+          <span class="status status--online">Online</span>
+        </div>
+
+        <div class="game-grid">
+          <article class="card">
+            <h3>Join the world</h3>
+            <p>New players are welcome. Join our Discord first to request a whitelist spot and get the server password.</p>
+            <a class="button button--primary" href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+          </article>
+
+          <article class="card">
+            <h3>Server details</h3>
+            <dl class="server-list">
+              <div>
+                <dt>Version</dt>
+                <dd>Latest</dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>Whitelist</dd>
+              </div>
+              <div>
+                <dt>Password</dt>
+                <dd>Shared in Discord</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="card card--wide">
+            <h3>About this world</h3>
+            <p>We build and explore together. Boss fights are group events planned in Discord.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Server rules</h3>
+            <ul class="server-rules">
+              <li>Play fair: no cheats, exploits, or griefing.</li>
+              <li>Respect other players and their belongings. Ask before taking anything; we are happy to help if you need supplies.</li>
+              <li>You may bring existing characters and equipment, but do not server-hop to move items or bypass progression.</li>
+              <li>Boss fights are group events. We aim to take on about one boss per week; check Discord to arrange the next fight.</li>
+              <li>Mark cleared dungeons with a wooden cross at the entrance so others know.</li>
+              <li>Use your in-game name, or a recognizable version of it, in Discord.</li>
+              <li>Keep the “Visible to other players” setting enabled.</li>
+            </ul>
+            <p class="server-rules__note">These rules rely on trust, respect, and common sense. Have fun and skål!</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord chat</h3>
+            <div class="chat" id="chat-valheim">
+              <p class="chat-note">Loading chat...</p>
+            </div>
+          </article>
+
+          <article class="card card--wide">
+            <h3>World screenshots</h3>
+            <p class="server-rules__note">A few moments from our worlds. Find more screenshots and share your own in <a href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">our Discord</a>.</p>
+            <div class="gallery">
+              <figure>
+                <a href="img/valheim/1.jpg"><img src="img/valheim/1.jpg" width="1920" height="1080" alt="A wooden longhouse and dining hall lit by its central hearth" loading="lazy" /></a>
+                <figcaption>The great hall, ready for a shared feast.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/valheim/2.jpg"><img src="img/valheim/2.jpg" width="1920" height="1080" alt="A bridge crossing the river beside the settlement" loading="lazy" /></a>
+                <figcaption>A raised bridge linking the settlement across the river.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/valheim/3.jpg"><img src="img/valheim/3.jpg" width="1920" height="1080" alt="A timber longhouse glowing in the evening light" loading="lazy" /></a>
+                <figcaption>The longhouse at dusk, with lights welcoming players home.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/valheim/4.jpg"><img src="img/valheim/4.jpg" width="1920" height="1080" alt="A large stone keep with a tall watchtower" loading="lazy" /></a>
+                <figcaption>A stone keep and watchtower rising above the forest.</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- MINECRAFT -->
+      <section
+        class="game-section"
+        id="minecraft"
+        aria-labelledby="minecraft-title"
+      >
+        <div class="game-head">
+          <div>
+            <p class="section-code">// Minecraft</p>
+            <h2 id="minecraft-title" class="game-title game-title--minecraft">
+              Minecraft
+            </h2>
+            <p>A modded Java world where we build, explore, and try new things together.</p>
+          </div>
+          <span class="status status--offline">Offline</span>
+        </div>
+
+        <div class="game-grid">
+          <article class="card">
+            <h3>Join the world</h3>
+            <p>New players are welcome. Join our Discord for availability, the server password, the current modpack, and setup instructions.</p>
+            <a class="button button--primary" href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">Join the Discord</a>
+          </article>
+
+          <article class="card">
+            <h3>Server details</h3>
+            <dl class="server-list">
+              <div>
+                <dt>Edition</dt>
+                <dd>Java</dd>
+              </div>
+              <div>
+                <dt>Version</dt>
+                <dd>Depends on modpack</dd>
+              </div>
+              <div>
+                <dt>Mods</dt>
+                <dd>Varies</dd>
+              </div>
+              <div>
+                <dt>Access</dt>
+                <dd>Password protected</dd>
+              </div>
+              <div>
+                <dt>Password</dt>
+                <dd>Shared in Discord</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="card card--wide">
+            <h3>About this world</h3>
+            <p>The best part is the people—we’re here, we’re awesome, and we make this world together.</p>
+            <p class="server-rules__note">The modpack changes over time. Popular mods you may see include Create, Just Enough Items (JEI), and Xaero’s Minimap. Check Discord for the current pack and exact version.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Server rules</h3>
+            <ul class="server-rules">
+              <li>No cheating or X-ray.</li>
+              <li>No griefing. Respect other players and the shared world.</li>
+              <li>Do not take other players’ items without asking. If you need supplies, ask—we are usually happy to help.</li>
+              <li>Use your in-game name, or a recognizable version of it, in Discord.</li>
+            </ul>
+            <p class="server-rules__note">Use common sense, be kind, and have fun building together.</p>
+          </article>
+
+          <article class="card card--wide">
+            <h3>Discord chat</h3>
+            <div class="chat" id="chat-minecraft">
+              <p class="chat-note">Loading chat...</p>
+            </div>
+          </article>
+
+          <article class="card card--wide">
+            <h3>World screenshots</h3>
+            <p class="server-rules__note">A few moments from our worlds. Find more screenshots and share your own in <a href="https://discord.gg/8YXanDcGU" target="_blank" rel="noopener noreferrer">our Discord</a>.</p>
+            <div class="gallery">
+              <figure>
+                <a href="img/minecraft/1.jpg"><img src="img/minecraft/1.jpg" width="1920" height="1080" alt="A large brown bear standing in a sunlit forest" loading="lazy" /></a>
+                <figcaption>A modded bear encounter in the forest.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/minecraft/2.jpg"><img src="img/minecraft/2.jpg" width="1920" height="1080" alt="A Minecraft town of timber and brick buildings" loading="lazy" /></a>
+                <figcaption>A busy town of timber, brick, and rooftops.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/minecraft/3.jpg"><img src="img/minecraft/3.jpg" width="1920" height="1080" alt="Promotional artwork for Mods of Myth" loading="lazy" /></a>
+                <figcaption>A glimpse of the Mods of Myth adventure.</figcaption>
+              </figure>
+              <figure>
+                <a href="img/minecraft/4.jpg"><img src="img/minecraft/4.jpg" width="1920" height="1080" alt="A purple cottage glowing beneath the night sky" loading="lazy" /></a>
+                <figcaption>A lantern-lit cottage beneath the night sky.</figcaption>
+              </figure>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <!-- Lightbox -->
+    <div
+      class="lightbox"
+      id="lightbox"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Image viewer"
+      hidden
+    >
+      <button
+        class="lightbox__btn lightbox__close"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+      <button
+        class="lightbox__btn lightbox__prev"
+        type="button"
+        aria-label="Previous image"
+      >
+        ‹
+      </button>
+      <figure>
+        <img id="lightbox-img" alt="" />
+        <figcaption id="lightbox-caption"></figcaption>
+      </figure>
+      <button
+        class="lightbox__btn lightbox__next"
+        type="button"
+        aria-label="Next image"
+      >
+        ›
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

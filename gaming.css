@@ -1,0 +1,518 @@
+/* Gaming-sidan: kompletterar styles.css */
+
+.gaming-hero {
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.gaming-mascot {
+  display: grid;
+  place-items: center;
+  min-width: 0;
+}
+
+.gaming-mascot img {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  border-radius: 10px;
+  filter: drop-shadow(0 0 20px rgb(0 170 255 / 18%));
+}
+
+@media (max-width: 1040px) {
+  .gaming-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}
+
+@media (max-width: 540px) {
+  .gaming-mascot img {
+    max-width: 360px;
+  }
+}
+
+/* Egna typsnitt per spel */
+.game-head .game-title {
+  margin: 0;
+  color: #eef8ff;
+  line-height: 1;
+}
+
+.game-head .game-title--satisfactory {
+  font-family: "Oxanium", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  text-shadow: 0 0 18px rgb(255 121 25 / 30%);
+}
+
+.game-head .game-title--valheim {
+  font-family: "MedievalSharp", cursive;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  color: #d8f4ff;
+  text-shadow: 0 0 18px rgb(156 232 255 / 25%);
+}
+
+.game-head .game-title--minecraft {
+  font-family: "Silkscreen", monospace;
+  font-size: clamp(1.9rem, 4.5vw, 3rem);
+  color: #9ce8ff;
+  text-shadow: 3px 3px 0 #0a2a3a;
+}
+
+.game-nav {
+  margin-top: 0;
+}
+
+.game-section {
+  width: min(var(--page-width), calc(100% - 40px));
+  margin: 0 auto 40px;
+  padding: 44px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: rgb(3 23 37 / 86%);
+  box-shadow: 0 25px 70px rgb(0 0 0 / 28%);
+  backdrop-filter: blur(18px);
+  scroll-margin-top: 116px;
+}
+
+.game-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 22px;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.game-head h2 {
+  margin: 0;
+  font-family: "Bahnschrift", "Arial Black", Arial, sans-serif;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+}
+
+.game-head p {
+  margin: 8px 0 0;
+  color: #91adba;
+  line-height: 1.6;
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.card {
+  min-width: 0;
+  padding: 22px;
+  border: 1px solid var(--line-soft);
+  border-radius: 8px;
+  background: rgb(4 20 32 / 58%);
+}
+
+.card--wide {
+  grid-column: 1 / -1;
+}
+
+.card h3 {
+  margin: 0 0 14px;
+  color: var(--cyan);
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+}
+
+.card p {
+  margin: 0;
+  color: #b8d0dc;
+  line-height: 1.6;
+}
+
+.server-rules {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding-left: 20px;
+  color: #b8d0dc;
+  line-height: 1.6;
+}
+
+.server-rules li::marker {
+  color: var(--orange);
+}
+
+.server-rules__note {
+  margin-top: 18px !important;
+  color: #9ce8ff !important;
+}
+
+.card > .button {
+  margin-top: 16px;
+}
+
+/* Server */
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.status::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.status--online {
+  color: #62e7c3;
+  border-color: rgb(98 231 195 / 60%);
+}
+
+.status--offline {
+  color: var(--orange);
+  border-color: rgb(255 121 25 / 60%);
+}
+
+.server-list {
+  margin: 0;
+}
+
+.server-list div {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.server-list div:first-child {
+  padding-top: 0;
+}
+
+.server-list div:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.server-list dt {
+  color: #779eaf;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+}
+
+.server-list dd {
+  margin: 0;
+  color: #c9e7f2;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.copy-btn {
+  margin-left: 10px;
+  padding: 5px 10px;
+  border: 1px solid var(--cyan);
+  border-radius: 4px;
+  background: transparent;
+  color: #bfeeff;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.copy-btn:hover,
+.copy-btn:focus-visible {
+  background: rgb(126 218 251 / 10%);
+  outline: none;
+}
+
+/* Discord-chatt */
+.chat {
+  display: grid;
+  gap: 12px;
+  min-width: 0;
+}
+
+.chat-msg {
+  min-width: 0;
+  padding: 10px 14px;
+  border-left: 2px solid var(--orange);
+  background: rgb(3 19 31 / 60%);
+  overflow-wrap: anywhere;
+}
+
+.chat-msg header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 4px;
+}
+
+.chat-msg strong {
+  color: #d8f4ff;
+  font-size: 0.86rem;
+}
+
+.chat-msg time {
+  color: #6f98a9;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.66rem;
+  overflow-wrap: anywhere;
+}
+
+.chat-msg p {
+  font-size: 0.92rem;
+}
+
+.chat-note {
+  margin: 14px 0 0;
+  color: #6f98a9;
+  font-family: Consolas, "Courier New", monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+}
+
+/* Bildgalleri */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.gallery a {
+  display: block;
+  overflow: hidden;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  transition:
+    border-color 160ms ease,
+    transform 160ms ease;
+}
+
+.gallery a:hover,
+.gallery a:focus-visible {
+  border-color: var(--cyan);
+  transform: translateY(-2px);
+  outline: none;
+}
+
+.gallery img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.gallery figure {
+  min-width: 0;
+  margin: 0;
+}
+
+.gallery figcaption {
+  padding: 8px 2px 0;
+  color: #9db9c6;
+  font-size: 0.75rem;
+  line-height: 1.45;
+}
+
+/* Mobil */
+@media (max-width: 760px) {
+  .game-section {
+    padding: 28px 20px;
+  }
+
+  .game-grid,
+  .gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .game-head h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 540px) {
+  .game-section {
+    width: calc(100% - 24px);
+    padding: 24px 16px;
+  }
+
+  .gallery {
+    gap: 10px;
+  }
+}
+/* Färgmarkering per spel på navigationskorten */
+.portal-card--satisfactory {
+  --accent: #ff7919;
+}
+
+.portal-card--valheim {
+  --accent: #7fd08a;
+}
+
+.portal-card--minecraft {
+  --accent: #4fa3ff;
+}
+
+.portal-card[class*="portal-card--"] {
+  border-bottom: 3px solid var(--accent);
+}
+
+.portal-card[class*="portal-card--"]:hover,
+.portal-card[class*="portal-card--"]:focus-visible {
+  border-color: var(--accent);
+}
+
+.portal-card[class*="portal-card--"] h2 {
+  color: var(--accent);
+}
+/* Färgmarkering per spelsektion */
+#satisfactory {
+  --accent: #ff7919;
+}
+
+#valheim {
+  --accent: #7fd08a;
+}
+
+#minecraft {
+  --accent: #4fa3ff;
+}
+
+.game-section {
+  border-top: 3px solid var(--accent);
+}
+
+.game-section .section-code {
+  color: var(--accent);
+}
+
+/* Shared image viewer, available on every entry page. */
+
+      [hidden] {
+        display: none !important;
+      }
+
+      /* Lightbox */
+      .lightbox {
+        position: fixed;
+        inset: 0;
+        z-index: 200;
+        display: grid;
+        place-items: center;
+        padding: 60px 70px;
+        background: rgb(1 8 14 / 92%);
+        backdrop-filter: blur(6px);
+      }
+
+      .lightbox figure {
+        margin: 0;
+        display: grid;
+        justify-items: center;
+        gap: 12px;
+      }
+
+      .lightbox img {
+        display: block;
+        max-width: min(1600px, 100%);
+        max-height: 82vh;
+        width: auto;
+        height: auto;
+        border: 1px solid var(--line);
+        border-radius: 6px;
+        box-shadow: 0 25px 80px rgb(0 0 0 / 60%);
+      }
+
+      .lightbox figcaption {
+        color: #79adc0;
+        font-family: Consolas, "Courier New", monospace;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+      }
+
+      .lightbox__btn {
+        position: absolute;
+        display: grid;
+        place-items: center;
+        width: 48px;
+        height: 48px;
+        border: 1px solid var(--cyan);
+        border-radius: 50%;
+        background: rgb(4 20 32 / 80%);
+        color: #bfeeff;
+        font-size: 1.6rem;
+        line-height: 1;
+        cursor: pointer;
+      }
+
+      .lightbox__btn:hover,
+      .lightbox__btn:focus-visible {
+        background: rgb(126 218 251 / 16%);
+        outline: none;
+      }
+
+      .lightbox__close {
+        top: 20px;
+        right: 20px;
+      }
+
+      .lightbox__prev {
+        top: 50%;
+        left: 16px;
+        transform: translateY(-50%);
+      }
+
+      .lightbox__next {
+        top: 50%;
+        right: 16px;
+        transform: translateY(-50%);
+      }
+
+      .gallery a {
+        cursor: zoom-in;
+      }
+
+      @media (max-width: 760px) {
+        .lightbox {
+          padding: 70px 12px 80px;
+        }
+
+        .lightbox__prev,
+        .lightbox__next {
+          top: auto;
+          bottom: 16px;
+          transform: none;
+        }
+
+        .lightbox__prev {
+          left: 16px;
+        }
+
+        .lightbox__next {
+          right: 16px;
+        }
+      }
+    
