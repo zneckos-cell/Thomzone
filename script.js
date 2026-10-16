@@ -309,6 +309,15 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
       const note = main.querySelector(`[data-server-note="${badge.dataset.serverStatus}"]`);
       if (note) note.textContent = state.note;
     });
+    main.querySelectorAll('[data-server-players]').forEach(field => {
+      const server = serverStatuses[field.dataset.serverPlayers];
+      const state = statusPresentation(server);
+      const hasCount = state.style === 'online' && Number.isInteger(server?.players) &&
+        server.players >= 0 && Number.isInteger(server.maxPlayers) && server.maxPlayers > 0;
+      field.textContent = hasCount ? `${server.players} / ${server.maxPlayers}` :
+        server?.status === 'coming-soon' ? 'Coming soon' :
+        state.label === 'Status outdated' ? 'Status outdated' : 'Unavailable';
+    });
   }
 
   async function updateServerStatuses(main) {
