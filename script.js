@@ -269,26 +269,78 @@ if (introOverlay && document.documentElement.classList.contains("intro-playing")
 
   // Initialize each cached page once. Keeping its DOM also preserves local state.
   const initializedPages = new WeakSet();
+  const statusURL = 'https://raw.githubusercontent.com/zneckos-cell/Thomzone-status/main/server-status.json';
+  const statusRefreshMs = 15 * 60 * 1000;
+  const statusMaxAgeMs = 30 * 60 * 1000;
   let serverStatusRequest;
-  function updateServerStatuses(main) {
-    serverStatusRequest ??= fetch(new URL('data/server-status.json', base), { signal: AbortSignal.timeout(10000) })
-      .then(response => { if (!response.ok) throw new Error('Status unavailable'); return response.json(); })
-      .catch(() => ({}));
-    serverStatusRequest.then(servers => {
-      main.querySelectorAll('[data-server-status]').forEach(badge => {
-        const server = servers[badge.dataset.serverStatus];
-        if (!server || !['online', 'offline'].includes(server.status)) return;
-        badge.classList.remove('status--unknown');
-        badge.classList.add(`status--${server.status}`);
-        badge.textContent = server.status === 'online' ? 'Reported online' : 'Reported offline';
-        const note = main.querySelector(`[data-server-note="${badge.dataset.serverStatus}"]`);
-        const checked = server.checkedAt && new Date(server.checkedAt);
-        if (note) note.textContent = checked && !Number.isNaN(checked.getTime())
-          ? `Manual update: ${checked.toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })}. Confirm in Discord.`
-          : 'Manual status · confirm availability in Discord';
-      });
+  let statusFetchedAt = 0;
+  let serverStatuses = { valheim: { status: 'coming-soon' }, minecraft: { status: 'coming-soon' } };
+
+  function statusPresentation(server, now = Date.now()) {
+    if (server?.status === 'coming-soon') {
+      return { style: 'unknown', label: 'Coming soon', note: 'Server not launched yet.' };
+    }
+    const checked = Date.parse(server?.checkedAt);
+    if (!Number.isFinite(checked)) {
+      return { style: 'unknown', label: 'Status unavailable', note: 'Automatic updates every 15 minutes. Check Discord for availability.' };
+    }
+    const minutes = Math.max(0, Math.floor((now - checked) / 60000));
+    if (now - checked >= statusMaxAgeMs || checked - now > 60000) {
+      return { style: 'unknown', label: 'Status outdated', note: 'No recent check received. Confirm availability in Discord.' };
+    }
+    const note = `Checked ${minutes < 1 ? 'just now' : `${minutes} min ago`} · updates every 15 min`;
+    if (server.status === 'online') {
+      const count = Number.isInteger(server.players) && server.players >= 0 &&
+        Number.isInteger(server.maxPlayers) && server.maxPlayers > 0
+        ? ` · ${server.players}/${server.maxPlayers} players` : '';
+      return { style: 'online', label: `Online${count}`, note: count ? note : `${note} · player count unavailable` };
+    }
+    if (server.status === 'idle') return { style: 'unknown', label: 'No world loaded', note };
+    if (server.status === 'offline') return { style: 'offline', label: 'Offline', note };
+    return { style: 'unknown', label: 'Status unavailable', note: `${note} · server may be starting or loading` };
+  }
+
+  function renderServerStatuses(main) {
+    main.querySelectorAll('[data-server-status]').forEach(badge => {
+      const state = statusPresentation(serverStatuses[badge.dataset.serverStatus]);
+      badge.classList.remove('status--unknown', 'status--online', 'status--offline');
+      badge.classList.add(`status--${state.style}`);
+      badge.textContent = state.label;
+      const note = main.querySelector(`[data-server-note="${badge.dataset.serverStatus}"]`);
+      if (note) note.textContent = state.note;
     });
   }
+
+  async function updateServerStatuses(main) {
+    renderServerStatuses(main);
+    if (!serverStatusRequest && Date.now() - statusFetchedAt >= statusRefreshMs) {
+      serverStatusRequest = (async () => {
+        try {
+          const response = await fetch(statusURL, { cache: 'no-store', signal: AbortSignal.timeout(10000) });
+          if (!response.ok) throw new Error('Status unavailable');
+          const data = await response.json();
+          if (!data || typeof data !== 'object' || Array.isArray(data)) throw new Error('Invalid status');
+          serverStatuses = data;
+        } catch {
+          // Keep last known data; its timestamp makes it expire automatically.
+        } finally { statusFetchedAt = Date.now(); }
+      })();
+    }
+    if (serverStatusRequest) {
+      const pending = serverStatusRequest;
+      await pending;
+      if (serverStatusRequest === pending) serverStatusRequest = null;
+    }
+    renderServerStatuses(main);
+  }
+  setInterval(() => {
+    if (!document.hidden) updateServerStatuses(currentMain);
+  }, statusRefreshMs);
+  // Refresh age labels without performing additional network requests.
+  setInterval(() => renderServerStatuses(currentMain), 60000);
+  document.addEventListener('visibilitychange', () => {
+    if (!document.hidden) updateServerStatuses(currentMain);
+  });
   function initializePage(main) {
     updateServerStatuses(main);
     if (initializedPages.has(main)) return;

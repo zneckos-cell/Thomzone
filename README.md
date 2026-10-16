@@ -34,7 +34,8 @@ python -m http.server 8766 --bind 127.0.0.1
 
 ## Spelstatus och bilder
 
-Startsidan och Gaming läser samma manuella status från `data/server-status.json`.
-Använd `online` eller `offline` i `status`. Sätt `checkedAt` till tidpunkten för en faktisk kontroll i ISO 8601-format med tidszon, exempelvis `2026-10-16T14:00:00+02:00`. Låt värdet vara `null` om kontrolltidpunkten är okänd. Uppgifterna märks som manuella; de är ingen automatisk serverkontroll. Om filen inte kan läsas visas ”Check Discord”. Ladda om sidan efter en statusändring.
+Home och Gaming hämtar automatisk status från `https://raw.githubusercontent.com/zneckos-cell/Thomzone-status/main/server-status.json`. Hämtning sker vid öppning och var femtonde minut i synlig flik. Uppgifter äldre än 30 minuter visas som ”Status outdated”; misslyckad hämtning behåller tidigare uppgifter tills de föråldras. Saknad eller ogiltig status visas som otillgänglig. GitHubs cache kan ge ytterligare fördröjning.
 
-Introt på startsidan varar en sekund och kan hoppas över. De maskotbilder som används på Home, Gaming och About har komprimerade WebP-versioner. PNG-originalen finns kvar för redigering.
+`server-monitor/` innehåller PowerShell-skriptet för Windows-VM:n, startfil och installationsinstruktioner. Skriptet kontrollerar och laddar upp direkt vid start och sedan var femtonde minut. Endast statusdokumentet publiceras till det separata statusrepot. Tokenfiler undantas från Git. `data/server-status.json` är en lokal reservmall, inte hemsidans aktiva datakälla.
+
+Introt på startsidan varar en sekund och kan hoppas över. Maskotbilderna på Home, Gaming och About har komprimerade WebP-versioner. PNG-originalen finns kvar för redigering.

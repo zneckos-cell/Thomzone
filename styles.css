@@ -1552,3 +1552,8 @@ svg {
 .status--unknown { color: #aac4d2; border-color: #698899; }
 .game-head__status { display: grid; justify-items: start; gap: 8px; }
 .game-head__status small { max-width: 210px; color: #aac4d2; line-height: 1.5; }
+
+/* Keep player counts readable within narrow game cards. */
+.server-status { max-width: 100%; line-height: 1.5; }
+.server-status::before { flex-shrink: 0; }
+.game-head__status { min-width: 0; max-width: 100%; }

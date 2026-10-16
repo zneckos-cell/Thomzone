@@ -1,14 +1,14 @@
 {
-  "valheim": {
-    "status": "online",
+  "satisfactory": {
+    "status": "unknown",
     "checkedAt": null
   },
-  "satisfactory": {
-    "status": "online",
+  "valheim": {
+    "status": "coming-soon",
     "checkedAt": null
   },
   "minecraft": {
-    "status": "offline",
+    "status": "coming-soon",
     "checkedAt": null
   }
 }
